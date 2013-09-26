@@ -9,18 +9,12 @@ class Owner < ActiveRecord::Base
 
   has_many :buildings,
     inverse_of: :owner,
-    dependent: :destroy
+    dependent: :nullify
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
-  def self.full_name_array
-    name_array = []
-    self.all.each do |owner|
-      name_array << owner.full_name
-    end
-    name_array
-  end
+
 
 end

@@ -21,6 +21,8 @@
 
 
   <div>Owner</div>
+  <%-if !building.owner.nil? -%>
   <td><%= building.owner.full_name %></td>
+  <%end%>
 </tr>
 <% end %>

@@ -46,12 +46,12 @@ feature 'User can associate buildings with owners', %Q{
 
     click_on 'Create Building'
 
-
     visit owners_path
     click_on 'Destroy'
     visit buildings_path
 
     expect(page).to_not have_content('John Smith')
+    expect(Building.last.owner_id).to eql(nil)
 
   end
 end
