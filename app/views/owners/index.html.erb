@@ -1,0 +1,7 @@
+<% @owners.each do |owner| %>
+
+  <div>Owner</div>
+  <%= owner.full_name %>
+  <%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>

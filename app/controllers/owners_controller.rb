@@ -1,7 +1,12 @@
 class OwnersController < ApplicationController
-  before_action :set_owner, only: [:new, :create]
+  before_action :set_owner, only: [:destroy]
+
+  def index
+    @owners = Owner.all
+  end
 
   def new
+    @owner = Owner.new
   end
 
   def create
@@ -15,10 +20,16 @@ class OwnersController < ApplicationController
     end
   end
 
+  def destroy
+
+    @owner.destroy
+    redirect_to buildings_path
+  end
+
   private
 
   def set_owner
-    @owner = Owner.new
+    @owner = Owner.find(params[:id])
   end
 
   def owner_params

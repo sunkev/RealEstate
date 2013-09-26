@@ -1,6 +1,10 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: [:new, :create]
 
+  def index
+    @buildings = Building.all
+  end
+
   def new
   end
 
