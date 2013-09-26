@@ -7,6 +7,8 @@ class Building < ActiveRecord::Base
   belongs_to :owner,
     inverse_of: :buildings
 
+  has_many :tenants,
+    inverse_of: :building
 
   US_STATES = [
       'Alabama', 'Alaska', 'Arizona', 'Arkansas',

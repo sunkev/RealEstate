@@ -1,0 +1,16 @@
+<% if @tenant.errors.any? %>
+    <div id="error_explanation">
+      <% @tenant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= simple_form_for @tenant do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.association :building, label_method: :street_address, value_method: :id, include_blank: false %>
+  <%= f.submit %>
+<% end %>

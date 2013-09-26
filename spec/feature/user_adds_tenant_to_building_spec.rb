@@ -41,7 +41,6 @@ feature 'Owner adds tenants to apartments', %Q{
     click_on 'Create Tenant'
     expect(Tenant.count).to eql(tenant_count+1)
 
-
   end
 end
 
