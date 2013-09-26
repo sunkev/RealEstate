@@ -18,8 +18,8 @@ feature 'User can make owners ', %Q{
 
     owner_count = Owner.count
     visit new_owner_path
-    fill_in 'First name', with: '46 Plum St.'
-    fill_in 'Last name', with: 'Hamilton'
+    fill_in 'First name', with: 'Kevin.'
+    fill_in 'Last name', with: 'Sun'
     fill_in 'Email', with: 'test@testing.com'
     fill_in 'Company name', with: 'Apple'
 
@@ -32,7 +32,7 @@ feature 'User can make owners ', %Q{
     owner_count = Owner.count
     visit new_owner_path
 
-    fill_in 'Last name', with: 'Hamilton'
+    fill_in 'Last name', with: 'Sun'
     fill_in 'Email', with: 'test@testing.com'
     fill_in 'Company name', with: 'Apple'
 
@@ -45,8 +45,8 @@ feature 'User can make owners ', %Q{
   scenario 'User relocated to new page after making a owner' do
 
     visit new_owner_path
-    fill_in 'First name', with: '46 Plum St.'
-    fill_in 'Last name', with: 'Hamilton'
+    fill_in 'First name', with: 'Kevin'
+    fill_in 'Last name', with: 'Sun'
     fill_in 'Email', with: 'test@testing.com'
     fill_in 'Company name', with: 'Apple'
 

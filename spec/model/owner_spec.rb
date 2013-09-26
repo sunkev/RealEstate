@@ -7,6 +7,8 @@ describe Owner do
   it { should_not have_valid(:email).when(nil, '')}
 
   it { should have_many(:buildings) }
+  it { should have_many(:tenants).through(:buildings) }
+
 
   describe '#full_name' do
     it 'returns the full name' do

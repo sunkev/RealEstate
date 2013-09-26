@@ -31,7 +31,7 @@ feature 'User can associate buildings with owners', %Q{
     expect(Building.last.owner).to eq(Owner.last)
   end
 
-  scenario 'User deletes the owner' do
+  scenario 'User deletes the owner, all associations gone' do
 
     FactoryGirl.create(:owner)
 
@@ -52,6 +52,7 @@ feature 'User can associate buildings with owners', %Q{
     visit buildings_path
 
     expect(page).to_not have_content('John Smith')
+    expect(Building.count).to eql(0)
 
   end
 end

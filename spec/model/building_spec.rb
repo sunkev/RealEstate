@@ -10,5 +10,6 @@ describe Building do
   it { should_not have_valid(:state).when(nil, '')}
 
   it { should belong_to(:owner) }
+  it { should have_many(:tenants) }
 end
 

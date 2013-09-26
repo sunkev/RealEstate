@@ -5,4 +5,5 @@ FactoryGirl.define do
     email 'user@example.com'
     company 'NEB'
   end
+
 end
