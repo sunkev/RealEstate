@@ -30,6 +30,31 @@ feature 'user records buildings to database', %Q{
       fill_in "Description", with: 'Best place'
       click_on 'Create Building'
       expect(Building.count).to eql(building_count + 1)
+
+    end
+
+    scenario 'User forgets postal code input and sees error mesage' do
+
+      visit new_building_path
+      fill_in 'Street address', with: '46 Plum St.'
+      fill_in 'City', with: 'Hamilton'
+      select 'Massachusetts', from: 'State'
+
+      click_on 'Create Building'
+      expect(page).to have_content("is not a number")
+    end
+
+    scenario 'User relocated to new page after sucessful building creation' do
+
+      visit new_building_path
+      fill_in 'Street address', with: '46 Plum St.'
+      fill_in 'City', with: 'Hamilton'
+      select 'Massachusetts', from: 'State'
+      fill_in 'Postal code', with: '01982'
+      fill_in "Description", with: 'Best place'
+      click_on 'Create Building'
+
+      current_path.should == new_building_path
     end
 
 end
