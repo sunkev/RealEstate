@@ -1,0 +1,14 @@
+<% @building.tenants.sort!{|t1,t2|t1.full_name <=> t2.full_name}.each do |tenant| %>
+
+  <div>Name</div>
+  <td><%= tenant.full_name%></td>
+
+  <div>Address</div>
+  <td><%= @building.street_address %></td>
+
+
+  <div>Email</div>
+  <td><%= tenant.email%></td>
+<% end %>
+
+

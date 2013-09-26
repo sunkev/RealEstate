@@ -1,0 +1,7 @@
+<% @tenants.each do |tenant| %>
+
+  <div>Tenant</div>
+  <%= tenant.full_name %>
+  <%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>

@@ -12,7 +12,26 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  # ## Mock Framework
+
+  config.before :suite do
+    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before do
+    if example.metadata[:js] || example.metadata[:type] == :feature
+      DatabaseCleaner.strategy = :deletion
+    else
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start
+    end
+  end
+
+  config.after do
+    DatabaseCleaner.clean
+  end
+
+# ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
   #
