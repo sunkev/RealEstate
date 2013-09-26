@@ -1,11 +1,15 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:new, :create]
+  before_action :set_building, only: [:show]
 
   def index
     @buildings = Building.all
   end
 
   def new
+    @building = Building.new
+  end
+
+  def show
   end
 
   def create
@@ -22,7 +26,7 @@ class BuildingsController < ApplicationController
   private
 
   def set_building
-    @building = Building.new
+     @building = Building.find(params[:id])
   end
 
   def building_params

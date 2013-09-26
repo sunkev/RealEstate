@@ -42,11 +42,22 @@ feature 'Owner adds tenants to apartments', %Q{
     expect(Tenant.count).to eql(tenant_count+1)
 
   end
+
+  scenario 'Owner can see tenants of a building' do
+
+    visit new_tenant_path
+
+    fill_in 'First name', with: 'Kevin'
+    fill_in 'Last name', with: 'Sun'
+    fill_in 'Email', with: 'test@testing.com'
+    select '46 Plum St.', from: 'Building'
+
+    click_on 'Create Tenant'
+    visit building_path(Building.last)
+    expect(page).to have_content('Kevin Sun')
+
+  end
+
+
+
 end
-
-
-
-
-
-
-# has_many :paragraphs, through: :sections

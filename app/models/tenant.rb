@@ -7,4 +7,8 @@ class Tenant < ActiveRecord::Base
 
   belongs_to :building,
     inverse_of: :tenants
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
