@@ -28,7 +28,7 @@ feature 'user records buildings to database', %Q{
       select 'Massachusetts', from: 'State'
       fill_in 'Postal code', with: '01982'
       fill_in "Description", with: 'Best place'
-      click_on 'Create building'
+      click_on 'Create Building'
       expect(Building.count).to eql(building_count + 1)
     end
 

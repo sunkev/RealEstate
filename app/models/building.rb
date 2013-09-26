@@ -2,11 +2,10 @@ class Building < ActiveRecord::Base
   validates_presence_of :street_address
   validates_presence_of :city
   validates_presence_of :state
-  validates_presence_of :postal_code
-  validates_numericality_of :postal_code
+  validates :postal_code, numericality: { only_integer: true }
 
-  def self.us_states
-    [
+
+  US_STATES = [
       'Alabama', 'Alaska', 'Arizona', 'Arkansas',
       'California', 'Colorado', 'Connecticut', 'Delaware',
       'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois',
@@ -21,6 +20,9 @@ class Building < ActiveRecord::Base
       'Vermont', 'Virginia', 'Washington', 'West Virginia',
       'Wisconsin', 'Wyoming'
     ]
+
+  def self.us_states
+    US_STATES
   end
 
 
