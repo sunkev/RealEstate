@@ -5,7 +5,7 @@ class CreateOwners < ActiveRecord::Migration
       t.string :last_name, null: false
       t.string :email, null: false
 
-      t.string :company, null: false
+      t.string :company
       t.timestamps
     end
   end

@@ -9,6 +9,6 @@ describe Building do
   it { should have_valid(:state).when('Massachusetts', 'Montana', 'New Jersey')}
   it { should_not have_valid(:state).when(nil, '')}
 
-  it { has_many :owners }
+  it { should belong_to(:owner) }
 end
 

@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20130926180220) do
     t.string   "city",           null: false
     t.string   "state",          null: false
     t.integer  "postal_code",    null: false
-    t.text     "description",    null: false
+    t.text     "description"
+    t.integer  "owner_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20130926180220) do
     t.string   "first_name", null: false
     t.string   "last_name",  null: false
     t.string   "email",      null: false
-    t.string   "company",    null: false
+    t.string   "company"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

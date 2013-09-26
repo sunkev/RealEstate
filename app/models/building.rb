@@ -4,6 +4,9 @@ class Building < ActiveRecord::Base
   validates_presence_of :state
   validates :postal_code, numericality: { only_integer: true }
 
+  belongs_to :owner,
+    inverse_of: :buildings
+
 
   US_STATES = [
       'Alabama', 'Alaska', 'Arizona', 'Arkansas',
