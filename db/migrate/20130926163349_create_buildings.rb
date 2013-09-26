@@ -7,7 +7,7 @@ class CreateBuildings < ActiveRecord::Migration
       t.integer :postal_code, null: false
       t.text :description
 
-      t.integer :owner_id, null: false
+      t.integer :owner_id
       t.timestamps
     end
   end

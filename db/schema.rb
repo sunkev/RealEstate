@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20130926180220) do
     t.string   "state",          null: false
     t.integer  "postal_code",    null: false
     t.text     "description"
-    t.integer  "owner_id",       null: false
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
