@@ -9,6 +9,8 @@
 
   <div>Email</div>
   <td><%= tenant.email%></td>
+
+  <%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 

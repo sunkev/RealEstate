@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Owner adds tenants to apartments', %Q{
+feature 'Owner adds/removes tenants to apartments', %Q{
   As an owner
   I want to add a tenant
   So that I can keep track of who is renting in my building} do
@@ -58,6 +58,20 @@ feature 'Owner adds tenants to apartments', %Q{
 
   end
 
+  scenario 'Owner removes tenant from a building' do
 
+    visit new_tenant_path
+
+    fill_in 'First name', with: 'Kevin'
+    fill_in 'Last name', with: 'Sun'
+    fill_in 'Email', with: 'test@testing.com'
+    select '46 Plum St.', from: 'Building'
+
+    click_on 'Create Tenant'
+    visit building_path(Building.last)
+    click_on 'Destroy'
+    expect(page).to have_content("Successful eviction")
+
+  end
 
 end

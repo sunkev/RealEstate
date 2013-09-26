@@ -22,13 +22,17 @@ class TenantsController < ApplicationController
 
   def destroy
     # binding.pry
-    @tenant.destroy
-    redirect_to new_owner_path
+    if @tenant.destroy
+      flash[notice] = "Successful eviction"
+      redirect_to new_tenant_path
+    else
+      redirect_to new_tenant_path
+    end
   end
 
   private
 
-  def set_owner
+  def set_tenant
     @tenant = Tenant.find(params[:id])
   end
 
