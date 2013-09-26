@@ -1,0 +1,16 @@
+<% if @owner.errors.any? %>
+    <div id="error_explanation">
+      <% @owner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= simple_form_for @owner do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :company, label: "Company name" %>
+  <%= f.submit %>
+<% end %>
