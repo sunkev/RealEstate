@@ -21,9 +21,9 @@ class OwnersController < ApplicationController
   end
 
   def destroy
-
+    # binding.pry
     @owner.destroy
-    redirect_to buildings_path
+    redirect_to new_owner_path
   end
 
   private

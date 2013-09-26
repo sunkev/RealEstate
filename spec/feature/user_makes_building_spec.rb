@@ -41,7 +41,7 @@ feature 'user records buildings to database', %Q{
       select 'Massachusetts', from: 'State'
 
       click_on 'Create Building'
-      expect(page).to have_content("is not a number")
+      expect(page).to have_content("can't be blank")
     end
 
     scenario 'User relocated to new page after sucessful building creation' do
